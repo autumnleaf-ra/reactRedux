@@ -1,0 +1,87 @@
+@import '@styles/base';
+
+.headerWrapper {
+  z-index: 10000;
+  background: #f0f0f6 !important;
+  position: sticky;
+  top: 0;
+  .contentWrapper {
+    @include directionX;
+    margin: auto;
+
+    color: var(--color-text);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    @include apply-at-lg-size {
+      padding: 0.5rem 2rem 0.5rem 2rem;
+    }
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+
+    .buttonLogin {
+      font-family: Poppins;
+      font-weight: 700;
+      color: var(--color-neutral-gray);
+    }
+
+    .buttonSignUp {
+      border-radius: 30px;
+      font-family: Poppins;
+      font-weight: 700;
+      background-color: var(--color-primary-cyan);
+    }
+
+    .logoImage {
+      @include directionX;
+      cursor: pointer;
+      align-items: center;
+
+      .logo {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+      }
+
+      .title {
+        font-size: 25px;
+        background: var(--color-text-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        padding-right: 10px;
+      }
+
+      .nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0px;
+        justify-content: space-evenly;
+        gap: 10px;
+      }
+
+      .nav li {
+        font-size: 18px;
+        color: var(--color-neutral-gray);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.menu {
+  @include directionX;
+  align-items: center;
+
+  .menuAvatar {
+    width: 1rem;
+    height: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-right: 0.5rem;
+  }
+
+  .menuLang {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+}

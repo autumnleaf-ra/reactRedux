@@ -1,0 +1,82 @@
+@import '@styles/base';
+
+.wrapper {
+  margin: auto;
+  padding: 3rem;
+  font-family: Poppins;
+  background-color: #f0f0f6;
+
+  .middleWrap {
+    display: flex;
+    justify-content: space-between;
+
+    .description {
+      padding-bottom: 10px;
+    }
+
+    .buttonGetStared {
+      background-color: var(--color-primary-cyan);
+      border-radius: 20px;
+      font-weight: 700;
+      text-transform: none;
+    }
+  }
+
+  .shortenWrapper {
+    height: 150px;
+    background-color: var(--color-neutral-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-image: url('/src/assets/bg-shorten-desktop.svg');
+    border-radius: 10px;
+    width: 1000px;
+    margin: auto;
+
+    .shortenInput {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+
+      .inputText {
+        background-color: white;
+        width: 30rem;
+        border-radius: 10px;
+      }
+
+      .buttonShorten {
+        background-color: var(--color-primary-cyan);
+        border-radius: 10px;
+        font-weight: 700;
+        text-transform: none;
+      }
+    }
+  }
+
+  .statisticWrapper {
+    @include directionY;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    font-family: Poppins;
+  }
+  .textStatistic {
+    color: var(--color-neutral-darkviolet);
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .smallStatistic {
+    width: 700px;
+    font-family: Poppins;
+  }
+
+  .cardStatistic {
+    @include directionX;
+    gap: 40px;
+  }
+}
