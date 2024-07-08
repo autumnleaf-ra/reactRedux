@@ -12,6 +12,7 @@
 
     .description {
       padding-bottom: 10px;
+      color: black;
     }
 
     .buttonGetStared {
@@ -78,5 +79,32 @@
   .cardStatistic {
     @include directionX;
     gap: 40px;
+    color: black;
+
+    .card {
+      // background-color: green;
+
+      .logofirst {
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-neutral-purple);
+        border-radius: 50%;
+        align-items: center;
+        align-self: center;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        margin-top: -10px;
+        margin-left: 20px;
+      }
+
+      .boxCard {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        text-align: left;
+        padding-top: 30px
+      }
+    }
   }
 }
