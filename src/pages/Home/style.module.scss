@@ -56,6 +56,21 @@
     }
   }
 
+  .listWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    .items {
+      display: flex;
+      margin-top: 10px;
+      width: 1000px;
+      background-color: white;
+      justify-content: space-between;
+    }
+  }
+
   .statisticWrapper {
     @include directionY;
     justify-content: center;
@@ -65,6 +80,7 @@
     padding-top: 100px;
     font-family: Poppins;
   }
+
   .textStatistic {
     color: var(--color-neutral-darkviolet);
     font-size: 40px;
@@ -99,12 +115,15 @@
       }
 
       .boxCard {
-        display: flex;
-        flex-direction: column;
+        @include directionY;
         background-color: white;
         text-align: left;
-        padding-top: 30px
+        padding-top: 30px;
       }
     }
+  }
+
+  .footerWrapper {
+    background-color: red;
   }
 }

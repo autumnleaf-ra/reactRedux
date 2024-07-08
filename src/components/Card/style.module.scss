@@ -1,0 +1,9 @@
+.statisticWrapper {
+  @include directionY;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  padding-top: 100px;
+  font-family: Poppins;
+}

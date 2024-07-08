@@ -8,15 +8,13 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import NightsStayIcon from '@mui/icons-material/NightsStay';
 
 import { setLocale, setTheme } from '@containers/App/actions';
 
-import classes from './style.module.scss';
 import { Button } from '@mui/material';
+import classes from './style.module.scss';
 
-const Navbar = ({ title, locale, theme }) => {
+const Navbar = ({ title, locale }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);
@@ -28,10 +26,6 @@ const Navbar = ({ title, locale, theme }) => {
 
   const handleClose = () => {
     setMenuPosition(null);
-  };
-
-  const handleTheme = () => {
-    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
   const onSelectLang = (lang) => {
@@ -54,7 +48,9 @@ const Navbar = ({ title, locale, theme }) => {
     <div className={classes.headerWrapper} data-testid="navbar">
       <div className={classes.contentWrapper}>
         <div className={classes.logoImage} onClick={goHome}>
-          <div className={classes.title}>{title}</div>
+          <div className={classes.title}>
+            <img src="src/assets/logo.svg" alt="" />
+          </div>
           <div className={classes.nav}>
             <ul>
               <li>

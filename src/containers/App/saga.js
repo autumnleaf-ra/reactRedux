@@ -34,7 +34,9 @@ function* doPostUrlList({ url }) {
   yield put(setLoading(true));
   try {
     const response = yield call(postUrlShorten, url);
-    if (response) {
+    if (response.message) {
+      yield put(showPopup());
+    } else {
       yield put(setDataUrl(response));
     }
   } catch (error) {

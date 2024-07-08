@@ -6,11 +6,17 @@ import { createStructuredSelector } from 'reselect';
 import { selectLocale, selectTheme } from '@containers/App/selectors';
 
 import Navbar from '@components/Navbar';
+import Boost from '@components/Boost';
+import Footer from '@components/Footer';
+import { Card } from '@mui/material';
 
 const MainLayout = ({ children, locale, theme, intl: { formatMessage } }) => (
   <div>
     <Navbar title={formatMessage({ id: 'app_title_header' })} locale={locale} theme={theme} />
     {children}
+    <Card />
+    <Boost />
+    <Footer />
   </div>
 );
 

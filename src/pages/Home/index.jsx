@@ -10,16 +10,21 @@ import brandRecognition from '@static/images/icon-brand-recognition.svg';
 import fullyCustomizable from '@static/images/icon-fully-customizable.svg';
 import detailedRecords from '@static/images/icon-detailed-records.svg';
 
+import { Box, Button, List, ListItem, TextField, Typography } from '@mui/material';
 import classes from './style.module.scss';
-import { Box, Button, TextField, Typography } from '@mui/material';
 
 const Home = ({ urlList }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(postDataUrl('https://facebook.com'));
+    dispatch(postDataUrl('https://mui.com/material-ui/react-list/'));
   };
 
+  useEffect(() => {
+    console.log(urlList);
+  }, [urlList]);
+
+  // eslint-disable-next-line no-lone-blocks
   {
     /* <Button variant="contained" onClick={() => handleClick()}>
           Fetch
@@ -46,18 +51,38 @@ const Home = ({ urlList }) => {
       </div>
       <div className={classes.shortenWrapper}>
         <div className={classes.shortenInput}>
-          <TextField className={classes.inputText} placeholder="Shorten a link here..." />
-          <Button variant="contained" className={classes.buttonShorten}>
+          <TextField
+            className={classes.inputText}
+            sx={{ input: { color: 'black' } }}
+            placeholder="Shorten a link here..."
+          />
+          <Button variant="contained" className={classes.buttonShorten} onClick={() => handleClick()}>
             <FormattedMessage id="app_button_shorted" />
           </Button>
         </div>
       </div>
+      <div className={classes.listWrapper}>
+        <List>
+          {urlList.map((data) => (
+            <ListItem className={classes.items} key={data.key}>
+              <Typography>link asli</Typography>
+              <Typography>
+                <a href={data?.shrtlnk}>{data?.shrtlnk}</a>
+                <Button variant="contained" sx={{ textTransform: 'none', marginLeft: '10px', fontFamily: 'Poppins' }}>
+                  Copy
+                </Button>
+              </Typography>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+      {/* Card Section */}
       <div className={classes.statisticWrapper}>
         <div>
           <Typography className={classes.textStatistic}>
             <FormattedMessage id="app_text_statistic" />
           </Typography>
-          <Typography className={classes.smallStatistic}>
+          <Typography className={classes.smallStatistic} sx={{ color: 'black' }}>
             <FormattedMessage id="app_small_statistic" />
           </Typography>
         </div>
@@ -75,8 +100,7 @@ const Home = ({ urlList }) => {
               </Typography>
             </Box>
           </div>
-          {/* 2 */}
-          <div className={classes.card} style={{marginTop: '50px'}}>
+          <div className={classes.card} style={{ marginTop: '50px' }}>
             <div className={classes.logofirst}>
               <img src={detailedRecords} alt="" />
             </div>
@@ -89,8 +113,7 @@ const Home = ({ urlList }) => {
               </Typography>
             </Box>
           </div>
-          {/* 3 */}
-          <div className={classes.card} style={{marginTop: '150px'}}>
+          <div className={classes.card} style={{ marginTop: '150px' }}>
             <div className={classes.logofirst}>
               <img src={fullyCustomizable} alt="" />
             </div>

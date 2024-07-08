@@ -24,7 +24,7 @@ export const initialState = {
   urlList: [],
 };
 
-export const storedKey = ['locale', 'theme'];
+export const storedKey = ['locale', 'urlList'];
 
 const appReducer = (state = initialState, action) =>
   produce(state, (draft) => {

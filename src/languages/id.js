@@ -20,4 +20,5 @@ export default {
   app_nav_1: 'Fitur',
   app_nav_2: 'Harga',
   app_nav_3: 'Sumber Daya',
+  error_already_exist: 'Maaf, URL ini sudah ada',
 };

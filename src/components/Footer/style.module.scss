@@ -1,0 +1,10 @@
+.footerWrapper {
+  background-color: var(--color-neutral-darkblue);
+  padding-top: 30px;
+
+  .contentFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

@@ -1,0 +1,26 @@
+.boostWrap {
+  background-color: var(--color-neutral-purple);
+  background-repeat: no-repeat;
+  background-image: url('/src/assets/bg-boost-desktop.svg');
+  height: 200px;
+  display: flex;
+  justify-content: center;
+
+  .boostHead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-poppins;
+    font-weight: 700;
+
+    .buttonGetStared {
+      background-color: var(--color-primary-cyan);
+      border-radius: 20px;
+      font-weight: 700;
+      text-transform: none;
+      border-radius: 20px;
+    }
+  }
+}

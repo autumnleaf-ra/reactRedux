@@ -26,5 +26,8 @@ export default {
   app_button_shorted: 'Shorten It!',
   app_text_statistic: 'Advanced Statistics',
   app_small_statistic: 'Track how your links are performing across the web with our advanced statistics dashboard.',
-  description_recognition : 'Brand your brand recognition with each click. Generic links help instil confidence in your content.',
+  description_recognition:
+    'Brand your brand recognition with each click. Generic links help instil confidence in your content.',
+  error_already_exist: 'URL already exist',
+  app_boost: 'Boost your links today.',
 };
