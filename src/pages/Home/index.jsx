@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
@@ -11,25 +11,38 @@ import fullyCustomizable from '@static/images/icon-fully-customizable.svg';
 import detailedRecords from '@static/images/icon-detailed-records.svg';
 
 import { Box, Button, List, ListItem, TextField, Typography } from '@mui/material';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import classes from './style.module.scss';
+import { Controller, useForm } from 'react-hook-form';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const Home = ({ urlList }) => {
   const dispatch = useDispatch();
+  const [copy, setCopy] = useState(false);
 
-  const handleClick = () => {
-    dispatch(postDataUrl('https://mui.com/material-ui/react-list/'));
+  const schema = yup.object().shape({
+    link: yup.string().required('Required'),
+  });
+
+  const { handleSubmit, control } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    dispatch(postDataUrl(data.link));
+  };
+
+  const handleCopy = () => {
+    setCopy(true);
+    setTimeout(() => {
+      setCopy(false);
+    }, 5000);
   };
 
   useEffect(() => {
     console.log(urlList);
   }, [urlList]);
-
-  // eslint-disable-next-line no-lone-blocks
-  {
-    /* <Button variant="contained" onClick={() => handleClick()}>
-          Fetch
-        </Button> */
-  }
 
   return (
     <div className={classes.wrapper}>
@@ -46,31 +59,53 @@ const Home = ({ urlList }) => {
           </Button>
         </div>
         <div>
-          <img src="/src/assets/illustration-working.svg" alt="ilustration-working" style={{ width: '600px' }} />
+          <img src="/src/assets/illustration-working.svg" alt="ilustration-working" className={classes.imageWorking} />
         </div>
       </div>
       <div className={classes.shortenWrapper}>
         <div className={classes.shortenInput}>
-          <TextField
-            className={classes.inputText}
-            sx={{ input: { color: 'black' } }}
-            placeholder="Shorten a link here..."
-          />
-          <Button variant="contained" className={classes.buttonShorten} onClick={() => handleClick()}>
-            <FormattedMessage id="app_button_shorted" />
-          </Button>
+          <form className={classes.shortenInput} onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+              render={({ field, formState }) => (
+                <TextField
+                  className={classes.inputText}
+                  {...field}
+                  sx={{ input: { color: 'black' } }}
+                  placeholder="Shorten a link here..."
+                  helperText={formState.errors?.link?.message}
+                  error={!!formState.errors?.link}
+                />
+              )}
+              name="link"
+              control={control}
+              defaultValue=""
+            />
+            <Button variant="contained" className={classes.buttonShorten} type="submit">
+              <FormattedMessage id="app_button_shorted" />
+            </Button>
+          </form>
         </div>
       </div>
       <div className={classes.listWrapper}>
-        <List>
+        <List className={classes.list}>
           {urlList.map((data) => (
             <ListItem className={classes.items} key={data.key}>
-              <Typography>link asli</Typography>
+              <Typography>{data?.url}</Typography>
               <Typography>
                 <a href={data?.shrtlnk}>{data?.shrtlnk}</a>
-                <Button variant="contained" sx={{ textTransform: 'none', marginLeft: '10px', fontFamily: 'Poppins' }}>
-                  Copy
-                </Button>
+                <CopyToClipboard text={data?.shrtlnk} onCopy={() => handleCopy()}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      textTransform: 'none',
+                      marginLeft: '10px',
+                      fontFamily: 'Poppins',
+                      backgroundColor: copy ? 'hsl(258, 27%, 26%)' : 'hsl(180, 62%, 53%)',
+                    }}
+                  >
+                    {copy ? 'Copied!' : 'Copy'}
+                  </Button>
+                </CopyToClipboard>
               </Typography>
             </ListItem>
           ))}
@@ -78,7 +113,7 @@ const Home = ({ urlList }) => {
       </div>
       {/* Card Section */}
       <div className={classes.statisticWrapper}>
-        <div>
+        <div className={classes.statisticText}>
           <Typography className={classes.textStatistic}>
             <FormattedMessage id="app_text_statistic" />
           </Typography>

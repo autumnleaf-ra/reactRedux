@@ -8,7 +8,7 @@
 
   .middleWrap {
     display: flex;
-    justify-content: space-between;
+    margin-bottom: 50px;
 
     .description {
       padding-bottom: 10px;
@@ -20,6 +20,31 @@
       border-radius: 20px;
       font-weight: 700;
       text-transform: none;
+    }
+
+    .imageWorking {
+      width: 600px;
+    }
+
+    @include apply-at-sm-size {
+      .imageWorking {
+        width: 300px;
+      }
+    }
+  }
+
+  @include apply-at-sm-size {
+    .middleWrap {
+      flex-direction: column-reverse;
+
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .imageWorking {
+        margin-left: 200px;
+        width: 500px;
+      }
     }
   }
 
@@ -56,6 +81,36 @@
     }
   }
 
+  @include apply-at-xl-size {
+    .shortenWrapper {
+      width: 700px;
+
+      .shortenInput {
+        @include directionY;
+        align-items: center;
+      }
+
+      .buttonShorten {
+        width: 580px;
+      }
+    }
+  }
+
+  @include apply-at-sm-size {
+    .shortenWrapper {
+      width: 700px;
+
+      .shortenInput {
+        @include directionY;
+        align-items: center;
+      }
+
+      .buttonShorten {
+        width: 400px;
+      }
+    }
+  }
+
   .listWrapper {
     display: flex;
     justify-content: center;
@@ -68,6 +123,12 @@
       width: 1000px;
       background-color: white;
       justify-content: space-between;
+    }
+
+    @include apply-at-xl-size {
+      .items {
+        width: 720px;
+      }
     }
   }
 
@@ -90,6 +151,7 @@
   .smallStatistic {
     width: 700px;
     font-family: Poppins;
+    margin-bottom: 50px;
   }
 
   .cardStatistic {
@@ -120,6 +182,12 @@
         text-align: left;
         padding-top: 30px;
       }
+    }
+  }
+
+  @include apply-at-xl-size {
+    .cardStatistic {
+      flex-direction: column;
     }
   }
 

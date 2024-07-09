@@ -14,7 +14,7 @@ import { setLocale, setTheme } from '@containers/App/actions';
 import { Button } from '@mui/material';
 import classes from './style.module.scss';
 
-const Navbar = ({ title, locale }) => {
+const Navbar = ({ locale }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);

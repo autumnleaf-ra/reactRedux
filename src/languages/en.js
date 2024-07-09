@@ -1,3 +1,5 @@
+import App from '@containers/App';
+
 export default {
   app_greeting: 'Hi from Web!',
   app_title_header: 'Shortly',
@@ -30,4 +32,14 @@ export default {
     'Brand your brand recognition with each click. Generic links help instil confidence in your content.',
   error_already_exist: 'URL already exist',
   app_boost: 'Boost your links today.',
+  app_footer_features_1: 'Link Shortening',
+  app_footer_features_2: 'Branded Links',
+  app_footer_features_3: 'Analytics',
+  app_footer_resources1: 'Blog',
+  app_footer_resources2: 'Developers',
+  app_footer_resources3: 'Suporrt',
+  app_footer_company1: 'About',
+  app_footer_company2: 'Our Team',
+  app_footer_company3: 'Careers',
+  app_footer_company4: 'Contact',
 };

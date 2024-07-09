@@ -1,10 +1,37 @@
 .footerWrapper {
   background-color: var(--color-neutral-darkblue);
-  padding-top: 30px;
+  padding-top: 60px;
+  padding-bottom: 30px;
 
   .contentFooter {
-    display: flex;
-    flex-direction: row;
+    @include directionX;
     justify-content: space-evenly;
+
+    .textContent {
+      font-weight: 100;
+    }
+
+    .icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icons img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @include apply-at-sm-size {
+    .contentFooter {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+
+      .icons {
+        padding-top: 10px;
+      }
+    }
   }
 }
