@@ -55,7 +55,7 @@
     flex-direction: column;
     justify-content: center;
     background-repeat: no-repeat;
-    background-image: url('/src/assets/bg-shorten-desktop.svg');
+    background-image: url('@static/images/bg-shorten-desktop.svg');
     border-radius: 10px;
     width: 1000px;
     margin: auto;
@@ -67,7 +67,6 @@
       gap: 20px;
 
       .inputText {
-        // background-color: white;
         width: 30rem;
         border-radius: 10px;
       }
@@ -102,7 +101,7 @@
 
   @include apply-at-sm-size {
     .shortenWrapper {
-      width: 700px;
+      width: 500px;
 
       .shortenInput {
         @include directionY;

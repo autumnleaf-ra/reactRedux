@@ -1,5 +1,3 @@
-import App from '@containers/App';
-
 export default {
   app_greeting: 'Hi from Web!',
   app_title_header: 'Shortly',
@@ -53,4 +51,9 @@ export default {
   app_footer_company4: 'Contact',
   app_url_input: 'URL not valid!',
   app_url_empty: 'URL can not be empty',
+  app_button_login: 'Login',
+  app_button_signup: 'Sign Up',
+  app_footer_features: 'Features',
+  app_footer_resources: 'Resources',
+  app_footer_company: 'Company',
 };

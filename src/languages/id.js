@@ -52,4 +52,9 @@ export default {
   app_footer_company4: 'Kontak',
   app_url_input: 'URL tidak valid!',
   app_url_empty: 'URL tidak boleh kosong',
+  app_button_login: 'Masuk',
+  app_button_signup: 'Daftar',
+  app_footer_features: 'Fitur',
+  app_footer_resources: 'Sumber Daya',
+  app_footer_company: 'Perusahaan',
 };

@@ -9,7 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 
-import { setLocale, setTheme } from '@containers/App/actions';
+import { setLocale } from '@containers/App/actions';
 
 import { Button } from '@mui/material';
 import logo from '@static/images/logo.svg';
@@ -50,7 +50,7 @@ const Navbar = ({ locale }) => {
       <div className={classes.contentWrapper}>
         <div className={classes.logoImage} onClick={goHome}>
           <div className={classes.title}>
-            <img src={logo} alt="" />
+            <img src={logo} alt="" width={80} />
           </div>
           <div className={classes.nav}>
             <ul>
@@ -67,9 +67,11 @@ const Navbar = ({ locale }) => {
           </div>
         </div>
         <Stack direction="row">
-          <Button className={classes.buttonLogin}>Login</Button>
+          <Button className={classes.buttonLogin}>
+            <FormattedMessage id="app_button_login" />
+          </Button>
           <Button variant="contained" className={classes.buttonSignUp}>
-            Sign Up
+            <FormattedMessage id="app_button_signup" />
           </Button>
           <IconButton onClick={handleClick}>
             <Avatar src={locale === 'id' ? '/id.png' : '/en.png'} sx={iconStyle} />
@@ -99,9 +101,7 @@ const Navbar = ({ locale }) => {
 };
 
 Navbar.propTypes = {
-  title: PropTypes.string,
   locale: PropTypes.string.isRequired,
-  theme: PropTypes.string,
 };
 
 export default Navbar;

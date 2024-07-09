@@ -7,8 +7,14 @@
     @include directionX;
     justify-content: space-evenly;
 
-    .textContent {
-      font-weight: 100;
+    .textDesc {
+      cursor: pointer;
+      color: gray;
+      padding-bottom: 5px;
+    }
+
+    .textDesc:hover {
+      color: var(--color-primary-cyan);
     }
 
     .icons {
@@ -19,6 +25,10 @@
     .icons img {
       width: 20px;
       height: 20px;
+    }
+
+    .icons svg path:hover {
+      fill: var(--color-primary-cyan);
     }
   }
 
