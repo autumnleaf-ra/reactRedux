@@ -25,11 +25,20 @@ export default {
   app_project_info: 'More than just shorter links',
   app_project_description: 'Build your brands recognition and get detailed insights on how your links are performing.',
   app_button_get_started: 'Get Started',
+  app_button_copy: 'Copy',
+  app_button_success_copy: 'Copied!',
   app_button_shorted: 'Shorten It!',
   app_text_statistic: 'Advanced Statistics',
   app_small_statistic: 'Track how your links are performing across the web with our advanced statistics dashboard.',
   description_recognition:
     'Brand your brand recognition with each click. Generic links help instil confidence in your content.',
+  brand_recognition: 'Brand Recognition',
+  detailed_records: 'Detailed Records',
+  description_records:
+    'Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.',
+  fully_customizable: 'Fully Customizable',
+  description_customizable:
+    'Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.',
   error_already_exist: 'URL already exist',
   app_boost: 'Boost your links today.',
   app_footer_features_1: 'Link Shortening',
@@ -42,4 +51,6 @@ export default {
   app_footer_company2: 'Our Team',
   app_footer_company3: 'Careers',
   app_footer_company4: 'Contact',
+  app_url_input: 'URL not valid!',
+  app_url_empty: 'URL can not be empty',
 };
