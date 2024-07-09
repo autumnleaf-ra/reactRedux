@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { setLocale, setTheme } from '@containers/App/actions';
 
 import { Button } from '@mui/material';
+import logo from '@static/images/logo.svg';
 import classes from './style.module.scss';
 
 const Navbar = ({ locale }) => {
@@ -49,7 +50,7 @@ const Navbar = ({ locale }) => {
       <div className={classes.contentWrapper}>
         <div className={classes.logoImage} onClick={goHome}>
           <div className={classes.title}>
-            <img src="src/assets/logo.svg" alt="" />
+            <img src={logo} alt="" />
           </div>
           <div className={classes.nav}>
             <ul>
