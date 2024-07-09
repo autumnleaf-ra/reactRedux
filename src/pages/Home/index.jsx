@@ -13,9 +13,10 @@ import detailedRecords from '@static/images/icon-detailed-records.svg';
 import { Box, Button, List, ListItem, TextField, Typography } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import classes from './style.module.scss';
 import { Controller, useForm } from 'react-hook-form';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import logo from '@static/images/illustration-working.svg';
+import classes from './style.module.scss';
 
 const Home = ({ urlList }) => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const Home = ({ urlList }) => {
           </Button>
         </div>
         <div>
-          <img src="/src/assets/illustration-working.svg" alt="ilustration-working" className={classes.imageWorking} />
+          <img src={logo} alt="ilustration-working" className={classes.imageWorking} />
         </div>
       </div>
       <div className={classes.shortenWrapper}>
