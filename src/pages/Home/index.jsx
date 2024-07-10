@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
@@ -22,6 +22,12 @@ const theme = createTheme();
 
 theme.typography.text = {
   fontFamily: 'Poppins',
+  fontWeight: 'bold',
+};
+
+theme.typography.textSmall = {
+  fontFamily: 'Poppins',
+  color: 'gray',
 };
 
 const Home = ({ urlList }) => {
@@ -50,15 +56,11 @@ const Home = ({ urlList }) => {
     }, 5000);
   };
 
-  useEffect(() => {
-    console.log(urlList);
-  }, [urlList]);
-
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.wrapper}>
         <div className={classes.middleWrap}>
-          <div>
+          <div className={classes.middleBar}>
             <h1 style={{ color: 'black' }}>
               <FormattedMessage id="app_project_info" />
             </h1>
@@ -145,7 +147,7 @@ const Home = ({ urlList }) => {
                 <Typography variant="text">
                   <FormattedMessage id="brand_recognition" />
                 </Typography>
-                <Typography variant="text">
+                <Typography variant="textSmall">
                   <FormattedMessage id="description_recognition" />
                 </Typography>
               </Box>
@@ -161,7 +163,7 @@ const Home = ({ urlList }) => {
                 <Typography variant="text">
                   <FormattedMessage id="detailed_records" />
                 </Typography>
-                <Typography variant="text">
+                <Typography variant="textSmall">
                   <FormattedMessage id="description_records" />
                 </Typography>
               </Box>
@@ -177,7 +179,7 @@ const Home = ({ urlList }) => {
                 <Typography variant="text">
                   <FormattedMessage id="fully_customizable" />
                 </Typography>
-                <Typography variant="text">
+                <Typography variant="textSmall">
                   <FormattedMessage id="description_customizable" />
                 </Typography>
               </Box>

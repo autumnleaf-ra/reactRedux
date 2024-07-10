@@ -15,6 +15,10 @@
       color: black;
     }
 
+    .middleBar {
+      margin-left: 170px;
+    }
+
     .buttonGetStared {
       background-color: var(--color-primary-cyan);
       border-radius: 20px;
@@ -26,9 +30,19 @@
       width: 600px;
     }
 
+    @include apply-at-lg-size {
+      .middleBar {
+        margin-left: 120px;
+      }
+    }
+
     @include apply-at-sm-size {
       .imageWorking {
         width: 300px;
+      }
+
+      .middleBar {
+        margin-left: 0px;
       }
     }
   }
@@ -101,15 +115,19 @@
 
   @include apply-at-sm-size {
     .shortenWrapper {
-      width: 500px;
+      width: 400px;
 
       .shortenInput {
         @include directionY;
         align-items: center;
+
+        .inputText {
+          width: 300px;
+        }
       }
 
       .buttonShorten {
-        width: 400px;
+        width: 300px;
       }
     }
   }
@@ -126,6 +144,17 @@
       width: 1000px;
       background-color: white;
       justify-content: space-between;
+    }
+
+    @include apply-at-sm-size {
+      .items {
+        @include directionY;
+      }
+
+      .items button {
+        @include directionY;
+        margin: auto;
+      }
     }
 
     @include apply-at-xl-size {
@@ -182,6 +211,12 @@
         text-align: left;
         padding-top: 30px;
       }
+
+      @include apply-at-sm-size {
+        .logofirst {
+          margin-left: 160px;
+        }
+      }
     }
 
     .card2 {
@@ -206,6 +241,12 @@
         text-align: left;
         padding-top: 30px;
       }
+
+      @include apply-at-sm-size {
+        .logofirst {
+          margin-left: 160px;
+        }
+      }
     }
 
     .card3 {
@@ -229,6 +270,12 @@
         background-color: white;
         text-align: left;
         padding-top: 30px;
+      }
+
+      @include apply-at-sm-size {
+        .logofirst {
+          margin-left: 160px;
+        }
       }
     }
 
