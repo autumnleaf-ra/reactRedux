@@ -15,6 +15,10 @@
     font-family: $font-poppins;
     font-weight: 700;
 
+    @include apply-at-sm-size {
+      font-size: medium;
+    }
+
     .buttonGetStared {
       background-color: var(--color-primary-cyan);
       color: white;

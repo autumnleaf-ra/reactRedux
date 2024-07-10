@@ -35,7 +35,7 @@ function* doPostUrlList({ url }) {
   try {
     const response = yield call(postUrlShorten, url);
     if (response.message) {
-      yield put(showPopup());
+      yield put(showPopup('Error', 'website telah digunakan'));
     } else {
       yield put(setDataUrl(response));
     }

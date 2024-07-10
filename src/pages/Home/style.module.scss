@@ -347,4 +347,9 @@
   .wrapper {
     overflow-x: hidden;
   }
+
+  .list {
+    @include directionY;
+    align-items: center;
+  }
 }
