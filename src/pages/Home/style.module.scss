@@ -16,7 +16,7 @@
     }
 
     .middleBar {
-      margin-left: 170px;
+      margin-left: 130px;
     }
 
     .buttonGetStared {
@@ -30,9 +30,9 @@
       width: 600px;
     }
 
-    @include apply-at-lg-size {
+    @include apply-at-xxl-size {
       .middleBar {
-        margin-left: 120px;
+        margin-left: 170px;
       }
     }
 
@@ -161,6 +161,14 @@
       .items {
         width: 720px;
       }
+    }
+  }
+
+  @include apply-at-sm-size {
+    .list {
+      margin-top: 10px;
+      width: 400px;
+      display: flex;
     }
   }
 

@@ -78,7 +78,11 @@ const Navbar = ({ locale }) => {
           </IconButton>
         </Stack>
         <Menu open={open} anchorEl={menuPosition} onClose={handleClose}>
-          <MenuItem onClick={() => onSelectLang('id')} selected={locale === 'id'}>
+          <MenuItem
+            onClick={() => onSelectLang('id')}
+            selected={locale === 'id'}
+            style={{ backgroundColor: 'white', color: ' black', paddingTop: '20px' }}
+          >
             <div className={classes.menu}>
               <Avatar className={classes.menuAvatar} src="/id.png" />
               <div className={classes.menuLang}>
@@ -86,7 +90,11 @@ const Navbar = ({ locale }) => {
               </div>
             </div>
           </MenuItem>
-          <MenuItem onClick={() => onSelectLang('en')} selected={locale === 'en'}>
+          <MenuItem
+            onClick={() => onSelectLang('en')}
+            selected={locale === 'en'}
+            style={{ backgroundColor: 'white', color: ' black' }}
+          >
             <div className={classes.menu}>
               <Avatar className={classes.menuAvatar} src="/en.png" />
               <div className={classes.menuLang}>

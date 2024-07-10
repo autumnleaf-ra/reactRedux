@@ -103,27 +103,33 @@ const Home = ({ urlList }) => {
           <List className={classes.list}>
             {urlList.map((data) => (
               <ListItem className={classes.items} key={data.key}>
-                <Typography variant="text">{data?.url}</Typography>
-                <Typography variant="text">
-                  <a href={data?.shrtlnk}>{data?.shrtlnk}</a>
-                  <CopyToClipboard text={data?.shrtlnk} onCopy={() => handleCopy()}>
-                    <Button
-                      variant="contained"
-                      sx={{
-                        textTransform: 'none',
-                        marginLeft: '10px',
-                        fontFamily: 'Poppins',
-                        backgroundColor: copy ? 'hsl(258, 27%, 26%)' : 'hsl(180, 62%, 53%)',
-                      }}
-                    >
-                      {copy ? (
-                        <FormattedMessage id="app_button_success_copy" />
-                      ) : (
-                        <FormattedMessage id="app_button_copy" />
-                      )}
-                    </Button>
-                  </CopyToClipboard>
-                </Typography>
+                <div>
+                  <Typography variant="text">{data?.url}</Typography>
+                </div>
+                <div>
+                  <Typography variant="text">
+                    <a href={data?.shrtlnk} target="_blank" rel="noreferrer">
+                      {data?.shrtlnk}
+                    </a>
+                    <CopyToClipboard text={data?.shrtlnk} onCopy={() => handleCopy()}>
+                      <Button
+                        variant="contained"
+                        sx={{
+                          textTransform: 'none',
+                          marginLeft: '10px',
+                          fontFamily: 'Poppins',
+                          backgroundColor: copy ? 'hsl(258, 27%, 26%)' : 'hsl(180, 62%, 53%)',
+                        }}
+                      >
+                        {copy ? (
+                          <FormattedMessage id="app_button_success_copy" />
+                        ) : (
+                          <FormattedMessage id="app_button_copy" />
+                        )}
+                      </Button>
+                    </CopyToClipboard>
+                  </Typography>
+                </div>
               </ListItem>
             ))}
           </List>
