@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
+import hamburgerMenu from '@static/images/hamburger-menu.svg';
 
 import { setLocale } from '@containers/App/actions';
 
@@ -19,14 +20,24 @@ const Navbar = ({ locale }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);
+  const [hamburger, setHamburger] = useState(null);
   const open = Boolean(menuPosition);
+  const opened = Boolean(hamburger);
 
   const handleClick = (event) => {
     setMenuPosition(event.currentTarget);
   };
 
+  const handleHamburger = (event) => {
+    setHamburger(event.currentTarget);
+  };
+
   const handleClose = () => {
     setMenuPosition(null);
+  };
+
+  const hamburgerClose = () => {
+    setHamburger(null);
   };
 
   const onSelectLang = (lang) => {
@@ -66,7 +77,7 @@ const Navbar = ({ locale }) => {
             </ul>
           </div>
         </div>
-        <Stack direction="row">
+        <Stack direction="row" className={classes.hiddenWrapper}>
           <Button className={classes.buttonLogin}>
             <FormattedMessage id="app_button_login" />
           </Button>
@@ -77,12 +88,18 @@ const Navbar = ({ locale }) => {
             <Avatar src={locale === 'id' ? '/id.png' : '/en.png'} sx={iconStyle} />
           </IconButton>
         </Stack>
-        <Menu open={open} anchorEl={menuPosition} onClose={handleClose}>
-          <MenuItem
-            onClick={() => onSelectLang('id')}
-            selected={locale === 'id'}
-            style={{ backgroundColor: 'white', color: ' black', paddingTop: '20px' }}
-          >
+        <Stack direction="row" className={classes.hiddenHamburger}>
+          <Button className={classes.buttonLogin} onClick={handleHamburger}>
+            <img src={hamburgerMenu} alt="" />
+          </Button>
+        </Stack>
+        <Menu
+          open={open}
+          anchorEl={menuPosition}
+          onClose={handleClose}
+          sx={{ '& .MuiMenu-paper': { backgroundColor: 'white', color: 'black', pt: 1 } }}
+        >
+          <MenuItem onClick={() => onSelectLang('id')} selected={locale === 'id'}>
             <div className={classes.menu}>
               <Avatar className={classes.menuAvatar} src="/id.png" />
               <div className={classes.menuLang}>
@@ -90,11 +107,7 @@ const Navbar = ({ locale }) => {
               </div>
             </div>
           </MenuItem>
-          <MenuItem
-            onClick={() => onSelectLang('en')}
-            selected={locale === 'en'}
-            style={{ backgroundColor: 'white', color: ' black' }}
-          >
+          <MenuItem onClick={() => onSelectLang('en')} selected={locale === 'en'}>
             <div className={classes.menu}>
               <Avatar className={classes.menuAvatar} src="/en.png" />
               <div className={classes.menuLang}>
@@ -102,6 +115,42 @@ const Navbar = ({ locale }) => {
               </div>
             </div>
           </MenuItem>
+        </Menu>
+        <Menu
+          open={opened}
+          anchorEl={hamburger}
+          onClose={hamburgerClose}
+          sx={{
+            '& .MuiMenu-paper': {
+              backgroundColor: 'hsl(257, 27%, 26%)',
+              color: 'white',
+              pt: 1,
+              width: 800,
+            },
+          }}
+        >
+          <div className={classes.menuItemlist}>
+            <MenuItem className={classes.items}>
+              <FormattedMessage id="app_nav_1" />
+            </MenuItem>
+            <MenuItem className={classes.items}>
+              <FormattedMessage id="app_nav_2" />
+            </MenuItem>
+            <MenuItem className={classes.items}>
+              <FormattedMessage id="app_nav_3" />
+            </MenuItem>
+            <MenuItem className={classes.items}>
+              <hr style={{ width: '400px' }} />
+            </MenuItem>
+            <MenuItem className={classes.items}>
+              <FormattedMessage id="app_button_login" />
+            </MenuItem>
+            <MenuItem className={classes.items}>
+              <Button variant="contained">
+                <FormattedMessage id="app_button_signup" />
+              </Button>
+            </MenuItem>
+          </div>
         </Menu>
       </div>
     </div>

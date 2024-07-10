@@ -36,6 +36,16 @@
       }
     }
 
+    @include apply-at-xl-size {
+      .imageWorking {
+        width: 450px;
+      }
+
+      .middleBar {
+        margin-left: 80px;
+      }
+    }
+
     @include apply-at-sm-size {
       .imageWorking {
         width: 300px;
@@ -180,6 +190,17 @@
     text-align: center;
     padding-top: 100px;
     font-family: Poppins;
+
+    @include apply-at-sm-size {
+      .statisticText {
+        width: 400px;
+        @include directionY;
+      }
+
+      .smallStatistic {
+        width: 400px;
+      }
+    }
   }
 
   .textStatistic {
@@ -319,5 +340,11 @@
 
   .footerWrapper {
     background-color: red;
+  }
+}
+
+@include apply-at-sm-size {
+  .wrapper {
+    overflow-x: hidden;
   }
 }
